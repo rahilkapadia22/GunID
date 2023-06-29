@@ -6,9 +6,17 @@ from werkzeug.utils import secure_filename
 import regex as re
 import cv2
 import numpy as np
+import torch
 
     
+apple = "CPU is available"
 
+# Check if CUDA is available
+if torch.cuda.is_available():
+    device = torch.device("cuda")
+    apple = "GPU is available"
+else:
+    device = torch.device("cpu")
 
 app = FastAPI()
 
@@ -114,7 +122,7 @@ async def video_results(file: UploadFile = File(...)):
                 # Remove Mandarin characters using Unicode range
                 predicted_object = re.sub(r'[\u4e00-\u9fff|:/]+', '', predicted_object)
 
-            predictions.append({"frame": frame_count, "predicted_object": predicted_object + apple})
+            predictions.append({"frame": frame_count, "predicted_object": predicted_object})
 
         frame_count += 1
 
