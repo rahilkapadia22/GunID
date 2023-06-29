@@ -9,21 +9,17 @@ ENV BUILD_WITH_CUDA "${USE_CUDA}"
 ENV TORCH_CUDA_ARCH_LIST "${TORCH_ARCH}"
 ENV CUDA_HOME /usr/local/cuda-11.6/
 
-RUN mkdir -p /home/appuser/Grounded-Segment-Anything
-COPY . /home/appuser/Grounded-Segment-Anything/
 
 RUN apt-get update && apt-get install --no-install-recommends wget unzip ffmpeg=7:* \
     libsm6=2:* libxext6=2:* git=1:* nano=2.* \
     vim=2:* -y \
     && apt-get clean && apt-get autoremove && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /home/appuser/Grounded-Segment-Anything
-RUN python -m pip install --no-cache-dir -e segment_anything && \
-    python -m pip install --no-cache-dir -e GroundingDINO && \
-    pip install -r requirements.txt
 
 WORKDIR /home/appuser
-RUN python -m pip install --no-cache-dir fastapi==0.65.2 uvicorn==0.15.0 fastapi.middleware.cors==0.2.0 \
+RUN python -m pip install --no-cache-dir fastapi==0.65.2 uvicorn==0.15.0 \
     werkzeug==2.0.1 regex==2021.4.4 torch==1.9.0 pyngrok==5.0.5 \
-    diffusers[torch]==0.15.1 opencv-python==4.7.0.72 pycocotools==2.0.6 matplotlib==3.5.3 \
-    onnxruntime==1.14.1 onnx==1.13.1 ipykernel==6.16.2 scipy gradio openai
+    timm==0.4.12 transformers==4.15.0 fairscale==0.4.4 \
+    pycocoevalcap torch torchvision Pillow scipy \
+    git+https://github.com/openai/CLIP.git numpy \
+    opencv-python-headless
