@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install --no-install-recommends wget unzip ffmpeg=
 
 WORKDIR /home/appuser
 RUN python -m pip install --no-cache-dir fastapi==0.65.2 uvicorn==0.15.0 \
-    werkzeug==2.0.1 regex==2021.4.4 torch==1.9.0 pyngrok==5.0.5 \
+    werkzeug==2.0.1 regex==2021.4.4 pyngrok==5.0.5 \
     timm==0.4.12 transformers==4.15.0 fairscale==0.4.4 \
     pycocoevalcap torch torchvision Pillow scipy \
     git+https://github.com/openai/CLIP.git numpy \

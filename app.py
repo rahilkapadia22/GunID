@@ -7,16 +7,6 @@ import regex as re
 import cv2
 import numpy as np
 
-import torch
-
-apple = "CPU is available"
-
-# Check if CUDA is available
-if torch.cuda.is_available():
-    device = torch.device("cuda")
-    apple = "GPU is available"
-else:
-    device = torch.device("cpu")
     
 
 

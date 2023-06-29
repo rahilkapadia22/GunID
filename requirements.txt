@@ -2,7 +2,6 @@ fastapi
 uvicorn
 werkzeug
 regex
-torch
 pyngrok
 timm==0.4.12
 transformers==4.15.0
