@@ -28,6 +28,23 @@ RUN python -m pip install --no-cache-dir regex==2021.4.4
 RUN python -m pip install --no-cache-dir torch==2.0.1 
 RUN python -m pip install --no-cache-dir pyngrok==5.0.5 
 RUN python -m pip install --no-cache-dir timm==0.4.12 
+
+FROM python:3.10
+
+# Add Rust compiler
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y curl && \
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+
+ENV PATH="/root/.cargo/bin:${PATH}"
+
+RUN python -m pip install --upgrade pip
+
+# Now add your Python dependencies
+RUN pip install transformers==4.15.0
+
+
 RUN python -m pip install --no-cache-dir transformers==4.15.0 
 RUN python -m pip install --no-cache-dir fairscale==0.4.4 
 RUN python -m pip install --no-cache-dir pycocoevalcap 
