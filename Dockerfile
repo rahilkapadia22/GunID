@@ -51,3 +51,10 @@ RUN python -m pip install --no-cache-dir pycocoevalcap
 RUN python -m pip install --no-cache-dir torch torchvision Pillow scipy
 RUN python -m pip install --no-cache-dir git+https://github.com/openai/CLIP.git numpy
 RUN python -m pip install --no-cache-dir opencv-python-headless
+
+RUN wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip \
+    && unzip ngrok-stable-linux-amd64.zip \
+    && rm ngrok-stable-linux-amd64.zip
+
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
+
