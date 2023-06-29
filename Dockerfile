@@ -21,10 +21,16 @@ WORKDIR /home/appuser
 
 # Install tokenizers before transformers
 RUN python -m pip install --no-cache-dir tokenizers
-
-RUN python -m pip install --no-cache-dir fastapi==0.65.2 uvicorn==0.15.0 \
-    werkzeug==2.0.1 regex==2021.4.4 torch==2.0.1 pyngrok==5.0.5 \
-    timm==0.4.12 transformers==4.15.0 fairscale==0.4.4 \
-    pycocoevalcap torch torchvision Pillow scipy \
-    git+https://github.com/openai/CLIP.git numpy \
-    opencv-python-headless
+RUN python -m pip install --no-cache-dir fastapi==0.65.2 
+RUN python -m pip install --no-cache-dir uvicorn==0.15.0
+RUN python -m pip install --no-cache-dir werkzeug==2.0.1 
+RUN python -m pip install --no-cache-dir regex==2021.4.4 
+RUN python -m pip install --no-cache-dir torch==2.0.1 
+RUN python -m pip install --no-cache-dir pyngrok==5.0.5 
+RUN python -m pip install --no-cache-dir timm==0.4.12 
+RUN python -m pip install --no-cache-dir transformers==4.15.0 
+RUN python -m pip install --no-cache-dir fairscale==0.4.4 
+RUN python -m pip install --no-cache-dir pycocoevalcap 
+RUN python -m pip install --no-cache-dir torch torchvision Pillow scipy
+RUN python -m pip install --no-cache-dir git+https://github.com/openai/CLIP.git numpy
+RUN python -m pip install --no-cache-dir opencv-python-headless
