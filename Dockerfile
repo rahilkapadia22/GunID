@@ -29,7 +29,6 @@ RUN python -m pip install --no-cache-dir torch==2.0.1
 RUN python -m pip install --no-cache-dir pyngrok==5.0.5 
 RUN python -m pip install --no-cache-dir timm==0.4.12 
 
-FROM python:3.10
 
 # Add Rust compiler
 RUN apt-get update && \
