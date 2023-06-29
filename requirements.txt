@@ -1,6 +1,5 @@
 fastapi
 uvicorn
-multipart
 werkzeug
 regex
 torch
@@ -14,3 +13,5 @@ torchvision
 Pillow
 scipy
 git+https://github.com/openai/CLIP.git
+numpy
+opencv-python-headless

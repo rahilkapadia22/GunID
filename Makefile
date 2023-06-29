@@ -33,17 +33,10 @@ build-image:
 	--build-arg TORCH_ARCH=$(TORCH_CUDA_ARCH_LIST) \
 	-t gsa:v0 .
 run:
-ifeq (,$(wildcard ./sam_vit_h_4b8939.pth))
-	wget https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth
-endif
-ifeq (,$(wildcard ./sam_hq_vit_h.pth))
-	wget https://www.dropbox.com/s/pno3bb69lbk78q9/sam_hq_vit_h.pth
-endif
+
 ifeq (,$(wildcard ./ram_swin_large_14m.pth))
 	wget https://huggingface.co/spaces/xinyu1205/Tag2Text/resolve/main/ram_swin_large_14m.pth
-endif
-ifeq (,$(wildcard ./groundingdino_swint_ogc.pth))
-	wget https://github.com/IDEA-Research/GroundingDINO/releases/download/v0.1.0-alpha/groundingdino_swint_ogc.pth
+
 endif
 ifeq (,$(wildcard ./tag2text_swin_14m.pth))
 	wget https://huggingface.co/spaces/xinyu1205/Tag2Text/resolve/main/tag2text_swin_14m.pth
